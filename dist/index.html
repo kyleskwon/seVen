@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
 <head lang="en">
     <meta charset="UTF-8">
     <title>seVen</title>
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="stylesheet" href="bootstrap.css">
 </head>
-<body>
-    <input ng-model="text"><span>Hey {{text}}</span>
+<body ng-app="seVen" ng-init="firstName = 'Kyle';">
+    <input type="text" ng-model="firstName"><span> Hey {{firstName}}</span>
     
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
     <!-- AngularJS -->
