@@ -11,11 +11,13 @@
     <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
     <script src="/scripts/app.js"></script>
 </head>
-<body ng-init="firstName = 'Kyle';">
-    <input type="text" ng-model="firstName"><span> Hey {{firstName}}</span>
-    
-    <ui-view></ui-view>
-    
+<body ng-controller="SampleCtrl">
+    <ul>
+        <li ng-repeat="message in messages">
+            <input ng-model="message.text" ng-change="messages.$save(message)" />
+            <button ng-click="messages.$remove(message)">Delete Message</button>
+        </li>
+    </ul>
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
     <script>
       // Initialize Firebase
