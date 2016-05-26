@@ -1,13 +1,8 @@
-var app = angular.module('seVen', ["firebase"]);
+var app = angular.module('seven', ["firebase"]);
 
-app.controller("SampleCtrl", function($scope, $firebaseArray) {
-  var ref = new Firebase("https://seven-9d492.firebaseio.com");
-  // download the data into an array
-  $scope.messages = $firebaseArray(ref);
+app.controller("SampleCtrl", function($scope, $firebaseObject) {
+  var ref = new Firebase("https://se7en.firebaseio.com/");
+  // download the data into a local object
+  $scope.data = $firebaseObject(ref);
   // putting a console.log here won't work, see below
-  $scope.addMessage = function() {
-    $scope.messages.$add({
-        text: $scope.newMessageText
-    });
-  };
 });
