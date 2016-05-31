@@ -6,7 +6,7 @@ app.controller("SampleCtrl", function($scope, $firebaseObject) {
   $scope.data = $firebaseObject(ref);
 });
 
-app.controller("ProfileCtrl", ["$scope", "$firebaseArray",
+app.controller("ProfileCtrl", ["$scope", $firebaseArray",
     function($scope, $firebaseArray) {
         var messagesRef = new Firebase("https://se7en.firebaseio.com/messages");
         

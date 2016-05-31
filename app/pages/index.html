@@ -20,14 +20,15 @@
     <div ng-controller="SampleCtrl">
         {{ data }}
     </div>
-    
-    <ul>
-        <li ng-repeat="message in messages">
-            {{ message.user }}: {{ message.text }}
-            <button ng-click="messages.$remove(message)">x</button>
-            Message data located at node /messages/{{ message.$id }}
-        </li>
-    </ul>
+    <div ng-controller="ProfileCtrl">
+        <ul>
+            <li ng-repeat="message in messages">
+                {{ message.user }}: {{ message.text }}
+                <button ng-click="messages.$remove(message)">x</button>
+                Message data located at node /messages/{{ message.$id }}
+            </li>
+        </ul>
+    </div>
     <script src="/scripts/app.js"></script>
 </body>
 </html>
