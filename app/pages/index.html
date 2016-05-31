@@ -17,15 +17,17 @@
 
 </head>
 <body>
+<!--
     <div ng-controller="SampleCtrl">
         {{ data }}
     </div>
+-->
     <div ng-controller="ProfileCtrl">
         <ul>
-            <li ng-repeat="message in messages">
-                {{ message.user }}: {{ message.text }}
-                <button ng-click="messages.$remove(message)">x</button>
-                Message data located at node /messages/{{ message.$id }}
+            <li ng-repeat="task in tasks">
+                {{ task.user }}: {{ task.text }}
+                <button ng-click="tasks.$remove(task)">x</button>
+                Task data located at node /tasks/{{ task.$id }}
             </li>
         </ul>
     </div>
