@@ -25,7 +25,7 @@
     <div ng-controller="ProfileCtrl">
         <ul>
             <li ng-repeat="task in tasks">
-                {{ task.user }}: {{ task.text }}
+                {{ task.text }}
                 <button ng-click="tasks.$remove(task)">x</button>
                 Task data located at node /tasks/{{ task.$id }}
             </li>

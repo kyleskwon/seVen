@@ -6,7 +6,7 @@ var app = angular.module('seven', ["firebase"]);
 //  $scope.data = $firebaseObject(ref);
 //});
 
-app.controller("ProfileCtrl", ["$scope", $firebaseArray",
+app.controller("ProfileCtrl", ["$scope", "$firebaseArray",
     function($scope, $firebaseArray) {
         var tasksRef = new Firebase("https://se7en.firebaseio.com/tasks");
         
@@ -15,5 +15,6 @@ app.controller("ProfileCtrl", ["$scope", $firebaseArray",
         var query = tasksRef.orderByChild("timestamp").limitToLast(25);
         
         $scope.filteredTasks = $firebaseArray(query);
+        $scope.filteredTasks.$add({text: "h"});
     }
 ]);
