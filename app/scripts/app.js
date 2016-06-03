@@ -15,6 +15,6 @@ app.controller("ProfileCtrl", ["$scope", "$firebaseArray",
         var query = tasksRef.orderByChild("timestamp").limitToLast(25);
         
         $scope.filteredTasks = $firebaseArray(query);
-        $scope.filteredTasks.$add({text: "h"});
+//        $scope.filteredTasks.$add({text: "h"});
     }
 ]);
