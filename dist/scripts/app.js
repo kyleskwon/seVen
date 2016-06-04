@@ -18,13 +18,26 @@ app.controller("ProfileCtrl", function($scope, $firebaseArray) {
 //        $scope.filteredTasks = $firebaseArray(query);
 ////        $scope.filteredTasks.$add({text: "h"});
 //    }
-
+    
+//  Synchronize collections as arrays
         $scope.addTask = function() {
             $scope.tasks.$add({
               text: $scope.newTaskText
             });
           };
 });
+    
+//app.controller("ProfileCtrl", function($scope, $firebaseAuth) {
+//  var ref = new Firebase("https://se7en.firebaseio.com");
+//    
+//    var auth = $firebaseAuth(ref);
+//    
+//    auth.$authWithOAuthPopup("facebook").then(function(authData) {
+//        console.log("Logged in as:", authData.uid);
+//    }).catch(function(error) {
+//        console.log("Authentication failed:", error);
+//    });
+//});
 
 //app.controller("SampleCtrl", function($scope, $firebaseObject) {
 //  var ref = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com/data");

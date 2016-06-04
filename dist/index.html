@@ -39,6 +39,8 @@
         <h3>Your task is to: {{ data.text }}</h3>
     </body>
 -->
+    
+<!--Synchronize collections as arrays-->
     <!-- push a new message onto the array -->
     <form ng-submit="addTask()">
       <input ng-model="newTaskText" />
@@ -52,6 +54,7 @@
         <button ng-click="tasks.$remove(task)">Delete</button>
       </li>
     </ul>
+    
     <script src="/scripts/app.js"></script>
 </body>
 </html>
