@@ -16,12 +16,13 @@
     <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
 
 </head>
-<body>
+<body ng-controller="ProfileCtrl">
 <!--
     <div ng-controller="SampleCtrl">
         {{ data }}
     </div>
 -->
+<!--
     <div ng-controller="ProfileCtrl">
         <ul>
             <li ng-repeat="task in tasks">
@@ -31,6 +32,26 @@
             </li>
         </ul>
     </div>
+-->
+<!--
+    <body ng-controller="SampleCtrl">
+        <input type="text" ng-model="data.text"/>
+        <h3>Your task is to: {{ data.text }}</h3>
+    </body>
+-->
+    <!-- push a new message onto the array -->
+    <form ng-submit="addTask()">
+      <input ng-model="newTaskText" />
+      <button type="submit">Add Task</button>
+    </form>
+    <ul>
+      <li ng-repeat="task in tasks">
+        <!-- edit a message -->
+        <input ng-model="task.text" ng-change="tasks.$save(task)" />
+        <!-- delete a message -->
+        <button ng-click="tasks.$remove(task)">Delete</button>
+      </li>
+    </ul>
     <script src="/scripts/app.js"></script>
 </body>
 </html>
