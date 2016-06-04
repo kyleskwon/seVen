@@ -1,8 +1,18 @@
 var app = angular.module('seven', ["firebase"]);
 
-app.controller("ProfileCtrl", function($scope, $firebaseArray) {
+app.controller("TaskCtrl", function($scope, $firebaseArray) {
   var ref = new Firebase("https://se7en.firebaseio.com/");
     $scope.tasks = $firebaseArray(ref);
+    
+//  Synchronize collections as arrays
+        $scope.addTask = function() {
+            $scope.tasks.$add({
+              text: $scope.newTaskText
+            });
+            $scope.text = "";
+        };
+});
+
 //  // download the data into a local object
 //  $scope.data = $firebaseObject(ref);
 //});
@@ -16,17 +26,9 @@ app.controller("ProfileCtrl", function($scope, $firebaseArray) {
 //        var query = tasksRef.orderByChild("timestamp").limitToLast(25);
 //        
 //        $scope.filteredTasks = $firebaseArray(query);
-////        $scope.filteredTasks.$add({text: "h"});
+////        $scope.filteredTasks.$add({text: "manual"});
 //    }
-    
-//  Synchronize collections as arrays
-        $scope.addTask = function() {
-            $scope.tasks.$add({
-              text: $scope.newTaskText
-            });
-          };
-});
-    
+
 //app.controller("ProfileCtrl", function($scope, $firebaseAuth) {
 //  var ref = new Firebase("https://se7en.firebaseio.com");
 //    
