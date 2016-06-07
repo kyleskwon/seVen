@@ -13,6 +13,31 @@ app.controller("TaskCtrl", function($scope, $firebaseArray) {
         };
 });
 
+(function() {
+    function config($stateProvider, $locationProvider) {
+        $locationProvider
+            .html5mode({
+                enabled: true,
+                requireBase: false
+        });
+    
+    
+    $stateProvider
+        .state('home', {
+        url: "/home",
+        controller: 'HomeCtrl as home',
+        templateUrl: "/templates/home.html"
+    })
+    .state('state.list', {
+        url: "/list",
+        templateUrl: "/templates/home.list.html",
+        controller: function($scope) {
+            $scope.items = ["A", "List", "Of", "Items"];
+        }
+    })
+    
+});
+
 //  // download the data into a local object
 //  $scope.data = $firebaseObject(ref);
 //});

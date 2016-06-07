@@ -13,6 +13,31 @@ app.controller("TaskCtrl", function($scope, $firebaseArray) {
         };
 });
 
+(function() {
+    function config($stateProvider, $locationProvider) {
+        $locationProvider
+            .html5mode({
+                enabled: true,
+                requireBase: false
+        });
+    
+    
+    $stateProvider
+        .state('home', {
+        url: "/home",
+        controller: 'HomeCtrl as home',
+        templateUrl: "/templates/home.html"
+    })
+    .state('state.list', {
+        url: "/list",
+        templateUrl: "/templates/home.list.html",
+        controller: function($scope) {
+            $scope.items = ["A", "List", "Of", "Items"];
+        }
+    })
+    
+});
+
 //  // download the data into a local object
 //  $scope.data = $firebaseObject(ref);
 //});
@@ -42,11 +67,11 @@ app.controller("TaskCtrl", function($scope, $firebaseArray) {
 //});
 
 //three-way data binding (notice the $bindTo method)
-//app.controller("SampleCtrl", function($scope, $firebaseObject) {
-//  var ref = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com/data");
-    //      download the data into a local object
-//  var syncObject = $firebaseObject(ref);
-    //      synchronize the object with a three-way data binding
-    //      click on `index.html` above to see it used in the DOM!
+//  app.controller("SampleCtrl", function($scope, $firebaseObject) {
+//      var ref = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com/data");
+//download the data into a local object
+//      var syncObject = $firebaseObject(ref);
+//synchronize the object with a three-way data binding
+//click on `index.html` above to see it used in the DOM!
 //  syncObject.$bindTo($scope, "data");
 //});

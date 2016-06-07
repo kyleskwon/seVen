@@ -14,21 +14,27 @@
     </script>
 </head>
 <body ng-controller="TaskCtrl">
+    <div ui-view></div>
+    <a ui-sref="home">Home state</a>
     <!--Synchronize collections as arrays-->
     <!-- push a new message onto the array -->
+<!--
     <form ng-submit="addTask()">
       <input ng-model="newTaskText" />
       <button type="submit">Add Task</button>
     </form>
     <ul>
       <li ng-repeat="task in tasks">
+-->
         <!-- edit a message -->
-        <input ng-model="task.text" ng-change="tasks.$save(task)" />
+<!--        <input ng-model="task.text" ng-change="tasks.$save(task)" />-->
         <!-- delete a message -->
+<!--
         <button ng-click="tasks.$remove(task)">Delete</button>
       </li>
     </ul>
-    <pre>{{ tasks | json }}</pre>
+-->
+<!--    <pre>{{ tasks | json }}</pre>-->
     <script src="/scripts/app.js"></script>
 </body>
 </html>
