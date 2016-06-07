@@ -5,54 +5,39 @@ app.controller("TaskCtrl", function($scope, $firebaseArray) {
     $scope.tasks = $firebaseArray(ref);
     
 //  Synchronize collections as arrays
-        $scope.addTask = function() {
-            $scope.tasks.$add({
-              text: $scope.newTaskText
-            });
-            $scope.text = "";
-        };
-});
-
-(function() {
-    function config($stateProvider, $locationProvider) {
-        $locationProvider
-            .html5mode({
-                enabled: true,
-                requireBase: false
+    $scope.addTask = function() {
+        $scope.tasks.$add({
+          text: $scope.newTaskText
         });
-    
-    
-    $stateProvider
-        .state('home', {
-        url: "/home",
-        controller: 'HomeCtrl as home',
-        templateUrl: "/templates/home.html"
-    })
-    .state('state.list', {
-        url: "/list",
-        templateUrl: "/templates/home.list.html",
-        controller: function($scope) {
-            $scope.items = ["A", "List", "Of", "Items"];
-        }
-    })
-    
+        $scope.text = "";
+    };
 });
 
-//  // download the data into a local object
-//  $scope.data = $firebaseObject(ref);
-//});
-
-//app.controller("ProfileCtrl", ["$scope", "$firebaseArray",
-//    function($scope, $firebaseArray) {
-//        var tasksRef = new Firebase("https://se7en.firebaseio.com/tasks");
+//(function() {
+//    function config($stateProvider, $locationProvider) {
+//        $locationProvider
+//            .html5Mode({
+//                enabled: true,
+//                requireBase: false
+//        });
 //        
-//        $scope.tasks = $firebaseArray(tasksRef);
-//        
-//        var query = tasksRef.orderByChild("timestamp").limitToLast(25);
-//        
-//        $scope.filteredTasks = $firebaseArray(query);
-////        $scope.filteredTasks.$add({text: "manual"});
+//        $stateProvider
+//            .state('landing', {
+//                url: '/',
+//                templateUrl: "/templates/landing.html"
+//            })
+//              .state('landing.list', {
+//                url: 'list',
+//                templateUrl: "/templates/landing.list.html"
+//            });
 //    }
+//    
+//    angular
+//        .module('seven', ['ui.router'])
+//        .config(config);
+//})();
+
+
 
 //app.controller("ProfileCtrl", function($scope, $firebaseAuth) {
 //  var ref = new Firebase("https://se7en.firebaseio.com");
