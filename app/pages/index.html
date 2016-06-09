@@ -27,7 +27,15 @@
             <button ng-click="tasks.$remove(task)">Delete</button>
           </li>
         </ul>
-
+        <ul>
+            
+    <h2>Current Tasks</h2>
+        <div ng-repeat="task in tasks">
+            {{ task.text }}
+<!--            <button ng-click="tasks.$remove(task)">x</button>-->
+<!--            Task data located at node /tasks/{{ task.$id }}-->
+            <hr/>
+        </div>
         <pre>{{ tasks | json }}</pre>
     </div>
 </body>
