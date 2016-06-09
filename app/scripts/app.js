@@ -1,4 +1,14 @@
-var app = angular.module('seven', ["firebase"]);
+var app = angular.module('seven', [
+    'firebase',
+    'ui.router'
+]);
+//.config(function ($routeProvider) {
+//    $routeProvider
+//        .when('/', {
+//            templateUrl: '/templates/landing.html',
+//            controller: 'LandingCtrl'
+//    });
+//});
 
 app.controller("TaskCtrl", function($scope, $firebaseArray) {
   var ref = new Firebase("https://se7en.firebaseio.com/");
@@ -12,6 +22,8 @@ app.controller("TaskCtrl", function($scope, $firebaseArray) {
         $scope.text = "";
     };
 });
+
+//var seven = angular.module('seven', ['ui.router']);
 
 //(function() {
 //    function config($stateProvider, $locationProvider) {
@@ -38,9 +50,9 @@ app.controller("TaskCtrl", function($scope, $firebaseArray) {
 //})();
 
 
-
-//app.controller("ProfileCtrl", function($scope, $firebaseAuth) {
-//  var ref = new Firebase("https://se7en.firebaseio.com");
+//authentication
+//  app.controller("ProfileCtrl", function($scope, $firebaseAuth) {
+//    var ref = new Firebase("https://se7en.firebaseio.com");
 //    
 //    var auth = $firebaseAuth(ref);
 //    
@@ -49,7 +61,7 @@ app.controller("TaskCtrl", function($scope, $firebaseArray) {
 //    }).catch(function(error) {
 //        console.log("Authentication failed:", error);
 //    });
-//});
+//  });
 
 //three-way data binding (notice the $bindTo method)
 //  app.controller("SampleCtrl", function($scope, $firebaseObject) {
