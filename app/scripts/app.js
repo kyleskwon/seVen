@@ -1,14 +1,16 @@
 var app = angular.module('seven', [
     'firebase',
     'ui.router'
-]);
-//.config(function ($routeProvider) {
-//    $routeProvider
-//        .when('/', {
-//            templateUrl: '/templates/landing.html',
-//            controller: 'LandingCtrl'
-//    });
-//});
+])
+
+.config(function ($stateProvider) {
+    $stateProvider
+        .state('landing', {
+            url: '/',
+            controller: 'LandingCtrl as landing',
+            templateUrl: '/templates/landing.html'
+    });
+});
 
 app.controller("TaskCtrl", function($scope, $firebaseArray) {
   var ref = new Firebase("https://se7en.firebaseio.com/");
