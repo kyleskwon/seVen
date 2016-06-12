@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="stylesheet" href="bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script><!-- AngularJS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script><!-- ui-router -->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script> ui-router -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script><!-- Firebase -->
     <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script><!-- AngularFire -->
     <script src="/scripts/app.js"></script>
@@ -16,6 +17,7 @@
     <ui-view></ui-view>
     <!--Synchronize collections as arrays-->
     <!-- push a new message onto the array -->
+<!--
     <div ng-controller="TaskCtrl">
         <form ng-submit="addTask()">
           <input ng-model="newTaskText" />
@@ -32,12 +34,13 @@
     <h2>Current Tasks</h2>
         <div ng-repeat="task in tasks">
             {{ task.text }}
-<!--            <button ng-click="tasks.$remove(task)">x</button>-->
-<!--            Task data located at node /tasks/{{ task.$id }}-->
+            <button ng-click="tasks.$remove(task)">x</button>
+            Task data located at node /tasks/{{ task.$id }}
             <hr/>
         </div>
         <pre>{{ tasks | json }}</pre>
     </div>
+-->
 </body>
 </html>
 

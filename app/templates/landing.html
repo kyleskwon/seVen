@@ -1,4 +1,8 @@
 <h1>Home state</h1>
 <hr/>
-<a ui-sref="landing.list">Show List</a>
+<h2>Current Tasks</h2>
+<a ui-sref="landing">Show List</a>
+    <div ng-repeat="task in tasks">
+        {{ task.text }}
+    </div>
 <ui-view></ui-view>
