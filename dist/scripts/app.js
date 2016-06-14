@@ -15,9 +15,36 @@
     }
     
     angular
-        .module('seven', ['ui.router'])
-        .config(config);
+        .module('seven', ['firebase', 'ui.router'])
+        .config(config)
+        .controller("TaskCtrl", function($scope, $firebaseArray) {
+          var ref = new Firebase("https://se7en.firebaseio.com/");
+            $scope.tasks = $firebaseArray(ref);
+
+        //  Synchronize collections as arrays
+            $scope.addTask = function() {
+                $scope.tasks.$add({
+                  text: $scope.newTaskText
+                });
+                $scope.text = "";
+            };
+        });
 })();
+
+//    var app = angular.module('seven', ['firebase'])
+//    
+//    app.controller("TaskCtrl", function($scope, $firebaseArray) {
+//      var ref = new Firebase("https://se7en.firebaseio.com/");
+//        $scope.tasks = $firebaseArray(ref);
+//    
+//    //  Synchronize collections as arrays
+//        $scope.addTask = function() {
+//            $scope.tasks.$add({
+//              text: $scope.newTaskText
+//            });
+//            $scope.text = "";
+//        };
+//    });
 
 //var app = angular.module('seven', [
 //    'firebase',
