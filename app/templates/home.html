@@ -1,15 +1,17 @@
-<h1>Home state</h1>
+<div class="container">
+    <h1>Home state</h1>
 <hr/>
-<h2>Current Tasks</h2>
-<div ng-repeat="task in tasks">
-    {{ task.text }}
-    <button ng-click="tasks.$remove(task)">Delete</button>
-</div>
+    <h2>Current Tasks</h2>
+    <ul class="list-group" ng-repeat="task in tasks">
+            <li class="list-group-item">{{ task.text }}
+            <button ng-click="tasks.$remove(task)">Delete</button></li>
+    </ul>
 <br>
-<div ng-controller="Home.controller">
-        <form ng-submit="addTask()">
-          <input ng-model="task" />
-          <button type="submit">Add Task</button>
-        </form>
-        <pre>{{ tasks | json }}</pre>
+    <div ng-controller="Home.controller">
+            <form ng-submit="addTask()">
+              <input ng-model="task" />
+              <button type="submit">Add Task</button>
+            </form>
+            <pre>{{ tasks | json }}</pre>
+    </div>
 </div>
