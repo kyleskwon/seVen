@@ -15,7 +15,7 @@ seven.config(['$stateProvider', '$locationProvider', function($stateProvider, $l
         });
 }]);
 
-seven.controller("Home.controller", function($scope, $firebaseArray) {
+seven.controller("Home.controller", function($scope, $timeout, $firebaseArray) {
     var ref = new Firebase("https://se7en.firebaseio.com/");
     $scope.tasks = $firebaseArray(ref);
 
@@ -27,6 +27,7 @@ seven.controller("Home.controller", function($scope, $firebaseArray) {
         });
         $scope.task = "";
     }
+    
 });
 
 //authentication
