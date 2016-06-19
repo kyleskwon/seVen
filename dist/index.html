@@ -16,54 +16,5 @@
 </head>
 <body>
     <ui-view></ui-view>
-    <!--Synchronize collections as arrays-->
-    <!-- push a new message onto the array -->
-<!--
-    <div ng-controller="TaskCtrl">
-        <form ng-submit="addTask()">
-          <input ng-model="newTaskText" />
-          <button type="submit">Add Task</button>
-        </form>
-        <ul>
-          <li ng-repeat="task in tasks">
-            <input ng-model="task.text" ng-change="tasks.$save(task)" />
-            <button ng-click="tasks.$remove(task)">Delete</button>
-          </li>
-        </ul>
-        <ul>
-            
-    <h2>Current Tasks</h2>
-        <div ng-repeat="task in tasks">
-            {{ task.text }}
-            <button ng-click="tasks.$remove(task)">x</button>
-            Task data located at node /tasks/{{ task.$id }}
-            <hr/>
-        </div>
-        <pre>{{ tasks | json }}</pre>
-    </div>
--->
 </body>
 </html>
-
-<!--
-    <div ng-controller="SampleCtrl">
-        {{ data }}
-    </div>
--->
-<!--
-    <div ng-controller="ProfileCtrl">
-        <ul>
-            <li ng-repeat="task in tasks">
-                {{ task.text }}
-                <button ng-click="tasks.$remove(task)">x</button>
-                Task data located at node /tasks/{{ task.$id }}
-            </li>
-        </ul>
-    </div>
--->
-<!--
-    <body ng-controller="SampleCtrl">
-        <input type="text" ng-model="data.text"/>
-        <h3>Your task is to: {{ data.text }}</h3>
-    </body>
--->

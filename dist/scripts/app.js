@@ -1,104 +1,33 @@
-(function() {
-    function config($stateProvider, $locationProvider) {
-        $locationProvider
+seven = angular.module('seven', ['ui.router', 'firebase']);
+
+seven.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
+    $locationProvider
             .html5Mode({
                 enabled: true,
                 requireBase: false
         });
-        
-        $stateProvider
-            .state('landing', {
-                url: '/',
-//                controller: 'LandingCtrl as landing',
-                templateUrl: '/templates/landing.html'
-        });
-    }
     
-    angular
-        .module('seven', ['firebase', 'ui.router'])
-        .config(config)
-        .controller("TaskCtrl", function($scope, $firebaseArray) {
-          var ref = new Firebase("https://se7en.firebaseio.com/");
-            $scope.tasks = $firebaseArray(ref);
-
-        //  Synchronize collections as arrays
-            $scope.addTask = function() {
-                $scope.tasks.$add({
-                  text: $scope.newTaskText
-                });
-                $scope.text = "";
-            };
+    $stateProvider
+            .state('home', {
+                url: '/',
+                controller: 'Home.controller',
+                templateUrl: '/templates/home.html'
         });
-})();
+}]);
 
-//    var app = angular.module('seven', ['firebase'])
-//    
-//    app.controller("TaskCtrl", function($scope, $firebaseArray) {
-//      var ref = new Firebase("https://se7en.firebaseio.com/");
-//        $scope.tasks = $firebaseArray(ref);
-//    
-//    //  Synchronize collections as arrays
-//        $scope.addTask = function() {
-//            $scope.tasks.$add({
-//              text: $scope.newTaskText
-//            });
-//            $scope.text = "";
-//        };
-//    });
+seven.controller("Home.controller", function($scope, $firebaseArray) {
+    var ref = new Firebase("https://se7en.firebaseio.com/");
+    $scope.tasks = $firebaseArray(ref);
 
-//var app = angular.module('seven', [
-//    'firebase',
-//    'ui.router'
-//])
-//
-//.config(function ($stateProvider) {
-//    $stateProvider
-//        .state('landing', {
-//            url: '/',
-//            controller: 'LandingCtrl as landing',
-//            templateUrl: '/templates/landing.html'
-//    });
-//});
-//
-//app.controller("TaskCtrl", function($scope, $firebaseArray) {
-//  var ref = new Firebase("https://se7en.firebaseio.com/");
-//    $scope.tasks = $firebaseArray(ref);
-//    
-////  Synchronize collections as arrays
-//    $scope.addTask = function() {
-//        $scope.tasks.$add({
-//          text: $scope.newTaskText
-//        });
-//        $scope.text = "";
-//    };
-//});
-
-//var seven = angular.module('seven', ['ui.router']);
-
-//(function() {
-//    function config($stateProvider, $locationProvider) {
-//        $locationProvider
-//            .html5Mode({
-//                enabled: true,
-//                requireBase: false
-//        });
-//        
-//        $stateProvider
-//            .state('landing', {
-//                url: '/',
-//                templateUrl: "/templates/landing.html"
-//            })
-//              .state('landing.list', {
-//                url: 'list',
-//                templateUrl: "/templates/landing.list.html"
-//            });
-//    }
-//    
-//    angular
-//        .module('seven', ['ui.router'])
-//        .config(config);
-//})();
-
+//  Synchronize collections as arrays
+    $scope.addTask = function() {
+        var name = $scope.tasks;
+        $scope.tasks.$add({
+          text: $scope.task
+        });
+        $scope.task = "";
+    }
+});
 
 //authentication
 //  app.controller("ProfileCtrl", function($scope, $firebaseAuth) {
