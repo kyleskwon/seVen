@@ -30,11 +30,7 @@ seven.controller("Home.controller", function($scope, $timeout, $firebaseArray) {
     }
     
     $scope.hideTask = function() {
-        $scope.show = true;
-        $timeout(function(){
-            $scope.show = false;
-        }, 3000);
-        //$timeout(ng-hide, 3000);
+        
     }
 });
 
