@@ -21,13 +21,21 @@ seven.controller("Home.controller", function($scope, $timeout, $firebaseArray) {
 
 //  Synchronize collections as arrays
     $scope.addTask = function() {
-        var name = $scope.tasks;
         $scope.tasks.$add({
-          text: $scope.task
+          text: $scope.task,
+          timeCreated: (new Date()).getTime()
+        }).then(function(ref) {
+            $scope.task = "";
         });
-        $scope.task = "";
     }
     
+    $scope.hideTask = function() {
+        $scope.show = true;
+        $timeout(function(){
+            $scope.show = false;
+        }, 3000);
+        //$timeout(ng-hide, 3000);
+    }
 });
 
 //authentication
