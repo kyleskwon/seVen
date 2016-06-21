@@ -29,8 +29,11 @@ seven.controller("Home.controller", function($scope, $timeout, $firebaseArray) {
         });
     }
     
+    // $scope.hiding = true;
     $scope.hideTask = function() {
-        
+        // hide the task after 3 seconds (change to 7 days later)
+        $scope.hiding = false;
+        $timeout(function() { $scope.hiding = true; }, 3000);
     }
 });
 
