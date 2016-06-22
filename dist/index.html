@@ -13,6 +13,15 @@
     <script src="/scripts/app.js"></script>
 </head>
 <body>
+    <div class="container">
+    <nav class="navbar">
+        <div class="links-container">
+            <a ui-sref="home" class="navbar-link">Current Tasks</a> | 
+            <a ui-sref="complete" class="navbar-link">Complete Tasks</a> | 
+            <a ui-sref="expired" class="navbar-link">Expired Tasks</a>
+        </div>
+    </nav>
+    </div>
     <ui-view></ui-view>
 </body>
 </html>

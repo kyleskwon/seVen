@@ -2,20 +2,30 @@ seven = angular.module('seven', ['ui.router', 'firebase']);
 
 seven.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
     $locationProvider
-            .html5Mode({
-                enabled: true,
-                requireBase: false
+        .html5Mode({
+            enabled: true,
+            requireBase: false
         });
     
     $stateProvider
-            .state('home', {
-                url: '/',
-                controller: 'Home.controller',
-                templateUrl: '/templates/home.html'
+        .state('home', {
+            url: '/',
+            controller: 'HomeCtrl',
+            templateUrl: '/templates/home.html'
+        })
+        .state('complete', {
+            url: '/complete',
+            controller: 'CompleteCtrl',
+            templateUrl: '/templates/complete.html'
+        })
+        .state('expired', {
+            url: '/expired',
+            controller: 'ExpiredCtrl',
+            templateUrl: '/templates/expired.html'
         });
 }]);
 
-seven.controller("Home.controller", function($scope, $timeout, $firebaseArray) {
+seven.controller("HomeCtrl", function($scope, $timeout, $firebaseArray) {
     var ref = new Firebase("https://se7en.firebaseio.com/");
     $scope.tasks = $firebaseArray(ref);
 
@@ -31,9 +41,13 @@ seven.controller("Home.controller", function($scope, $timeout, $firebaseArray) {
     
     // $scope.hiding = true;
     $scope.hideTask = function() {
-        // hide the task after 3 seconds (change to 7 days later)
+        //  hide task after 2 sec (2000); change to 7 days (604800000)
+        //  var currentTime = new Date().getTime();
+        //  if (currentTime - timeCreated >= 604800000) {
+        //      hide task
+        //  }
         $scope.hiding = false;
-        $timeout(function() { $scope.hiding = true; }, 3000);
+        $timeout(function() { $scope.hiding = true; }, 2000);
     }
 });
 

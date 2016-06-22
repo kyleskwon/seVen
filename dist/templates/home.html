@@ -1,6 +1,4 @@
 <div class="container">
-    <h1>Home state</h1>
-<hr/>
     <h2>Current Tasks</h2>
     <ul class="list-group" ng-repeat="task in tasks">
             <li class="list-group-item" ng-hide="hiding">{{ task.text }}
@@ -8,7 +6,7 @@
             <button ng-click="tasks.$remove(task)" class="btn btn-danger btn-sm">Delete</button></li>
     </ul>
 <br>
-    <div ng-controller="Home.controller">
+    <div ng-controller="HomeCtrl">
             <form ng-submit="addTask()">
               <input ng-model="task" />
               <button type="submit">Add Task</button>
