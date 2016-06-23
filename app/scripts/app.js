@@ -42,7 +42,7 @@ seven.controller("HomeCtrl", function($scope, $timeout, $firebaseArray) {
     
     //$scope.hiding = true;
     $scope.hideTask = function() {
-        //  hide task after 2 sec (2000); change to 7 days (604800000)
+        //  hide task after 0.5 sec (500); change to 7 days (604800000)
         //  var currentTime = new Date().getTime();
         //  if (currentTime - timeCreated >= 604800000) {
         //      hide task
@@ -50,7 +50,7 @@ seven.controller("HomeCtrl", function($scope, $timeout, $firebaseArray) {
         $scope.hiding = false;
         $timeout(function() { 
             $scope.hiding = true; 
-        }, 2000);
+        }, 500);
     }
 });
 
