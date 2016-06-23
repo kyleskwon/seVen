@@ -1,16 +1,16 @@
 <div class="container">
-    <h2>Current Tasks</h2>
-    <ul class="list-group" ng-repeat="task in tasks">
-            <li class="list-group-item" ng-hide="hiding">{{ task.text }}
-            <button  ng-click="hideTask()" class="btn btn-danger btn-sm">Hide</button>
-            <button ng-click="tasks.$remove(task)" class="btn btn-danger btn-sm">Delete</button></li>
+    <h2>Active Tasks</h2>
+    <ul class="list-group" ng-controller="HomeCtrl" ng-repeat="task in tasks">
+        <li class="list-group-item" ng-hide="hiding">{{ task.description }}
+        <button ng-click="hideTask()" class="btn btn-danger btn-sm">Hide</button>
+        <button ng-click="tasks.$remove(task)" class="btn btn-danger btn-sm">Delete</button></li>
     </ul>
 <br>
     <div ng-controller="HomeCtrl">
-            <form ng-submit="addTask()">
-              <input ng-model="task" />
-              <button type="submit">Add Task</button>
-            </form>
-            <pre>{{ tasks | json }}</pre>
+        <form ng-submit="addTask()">
+            <input ng-model="task" />
+            <button type="submit">Add Task</button>
+        </form>
+        <pre>{{ tasks | json }}</pre>
     </div>
 </div>

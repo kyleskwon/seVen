@@ -32,14 +32,15 @@ seven.controller("HomeCtrl", function($scope, $timeout, $firebaseArray) {
 //  Synchronize collections as arrays
     $scope.addTask = function() {
         $scope.tasks.$add({
-          text: $scope.task,
-          timeCreated: (new Date()).getTime()
+            description: $scope.task,
+            state: "active",
+            timeCreated: (new Date()).getTime()
         }).then(function(ref) {
-            $scope.task = "";
+            $scope.description = "";
         });
     }
     
-    // $scope.hiding = true;
+    //$scope.hiding = true;
     $scope.hideTask = function() {
         //  hide task after 2 sec (2000); change to 7 days (604800000)
         //  var currentTime = new Date().getTime();
@@ -47,7 +48,9 @@ seven.controller("HomeCtrl", function($scope, $timeout, $firebaseArray) {
         //      hide task
         //  }
         $scope.hiding = false;
-        $timeout(function() { $scope.hiding = true; }, 2000);
+        $timeout(function() { 
+            $scope.hiding = true; 
+        }, 2000);
     }
 });
 
