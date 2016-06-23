@@ -28,15 +28,16 @@ seven.config(['$stateProvider', '$locationProvider', function($stateProvider, $l
 seven.controller("HomeCtrl", function($scope, $timeout, $firebaseArray) {
     var ref = new Firebase("https://se7en.firebaseio.com/");
     $scope.tasks = $firebaseArray(ref);
-
+    
 //  Synchronize collections as arrays
     $scope.addTask = function() {
         $scope.tasks.$add({
             description: $scope.task,
+            priority: "medium",
             state: "active",
             timeCreated: (new Date()).getTime()
         }).then(function(ref) {
-            $scope.description = "";
+            $scope.task = "";
         });
     }
     
@@ -47,7 +48,7 @@ seven.controller("HomeCtrl", function($scope, $timeout, $firebaseArray) {
         //  if (currentTime - timeCreated >= 604800000) {
         //      hide task
         //  }
-        $scope.hiding = false;
+        $scope.hiding = false;    
         $timeout(function() { 
             $scope.hiding = true; 
         }, 500);
