@@ -1,3 +1,7 @@
+.form-control {
+    width: 50%;
+}
+
 .home-container {
     float: left;
 }

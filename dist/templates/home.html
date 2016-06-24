@@ -4,18 +4,26 @@
         <li class="list-group-item" ng-hide="hiding">
             {{ task.description }}
             <button class="btn btn-default btn-sm" ng-click="hideTask()" >Hide</button>
-<!--        <button ng-click="tasks.$remove(task)" class="btn btn-danger btn-sm">Delete</button>-->
+<!--
+        <button ng-click="tasks.$remove(task)" class="btn btn-danger btn-sm">Delete</button>    
+        doesn't function when the ng-controller above exists     
+-->
         </li>
     </ul>
     <div ng-controller="HomeCtrl">
         <form ng-submit="addTask()">
-            <input ng-model="task" />
-            <select ng-model="priority">
-                <option ng-repeat="p in priority">{{p}}</option>
-            </select>
-            <button type="submit">Add Task</button>
+            <div class="form-group">
+                <label>Add task:</label>
+                <input class="form-control" placeholder="Description goes here" ng-model="task" />
+            <br>
+                <select class="form-control" ng-model="select">
+                    <option ng-repeat="p in priority">{{p}}</option>
+                </select>
+            <br>
+                <button type="submit" class="btn btn-success btn-sm">Add Task</button>
+            </div>
             <br><br>
-            <b>Task: </b>{{ task }} <b>Priority: </b>{{ p }}
+            <b>Task: </b>{{ task }}
         </form>
         <br>
         <pre>{{ tasks | json }}</pre>

@@ -25,17 +25,26 @@ seven.config(['$stateProvider', '$locationProvider', function($stateProvider, $l
         });
 }]);
 
-seven.controller("HomeCtrl", function($scope, $timeout, $firebaseArray) {
+seven.controller("HomeCtrl", function($scope, $interval, $firebaseArray) {
     var ref = new Firebase("https://se7en.firebaseio.com/");
     $scope.tasks = $firebaseArray(ref);
+//    $scope.select = 'Choose one';   // dropdown placeholder
     $scope.priority = ['High', 'Medium', 'Low'];
+    
+    // loop through the task array
+    // check if expired
+    // if expired, change state to expired
+    // look at firebase doc for methods
+    $interval(function() {
+        console.log("A");
+    }, 2000)
     
 //  Synchronize collections as arrays
     $scope.addTask = function() {
         $scope.tasks.$add({
             description: $scope.task,
-            priority: $scope.priority,
-            state: "Active",
+//            priority: ,   // user's choice from $scope.priority
+            state: "active",
             timeCreated: (new Date()).getTime()
         }).then(function(ref) {
             $scope.task = "";
@@ -49,8 +58,14 @@ seven.controller("HomeCtrl", function($scope, $timeout, $firebaseArray) {
         //  if (currentTime - timeCreated >= 604800000) {
         //      hide task
         //  }
+        // function that finds the current time and compares it to the timeCreated + timeLimit
+        // run this check every 5 seconds
+        
+        // set up an interval that 
+        
         $scope.hiding = false;    
-        $timeout(function() { 
+        $timeout(function() {
+            $scope.state = "complete";
             $scope.hiding = true; 
         }, 500);
     }
