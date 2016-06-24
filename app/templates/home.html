@@ -10,7 +10,10 @@
         <form ng-submit="addTask()">
             <input ng-model="task" />
             <button type="submit">Add Task</button>
+            <br><br>
+            <b>Task: </b>{{ task }}
         </form>
+        <br>
         <pre>{{ tasks | json }}</pre>
     </div>
 </div>
