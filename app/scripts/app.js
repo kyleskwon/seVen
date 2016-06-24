@@ -28,13 +28,14 @@ seven.config(['$stateProvider', '$locationProvider', function($stateProvider, $l
 seven.controller("HomeCtrl", function($scope, $timeout, $firebaseArray) {
     var ref = new Firebase("https://se7en.firebaseio.com/");
     $scope.tasks = $firebaseArray(ref);
+    $scope.priority = ['High', 'Medium', 'Low'];
     
 //  Synchronize collections as arrays
     $scope.addTask = function() {
         $scope.tasks.$add({
             description: $scope.task,
-            priority: "medium",
-            state: "active",
+            priority: $scope.priority,
+            state: "Active",
             timeCreated: (new Date()).getTime()
         }).then(function(ref) {
             $scope.task = "";

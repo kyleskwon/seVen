@@ -1,0 +1,9 @@
+.home-container {
+    float: left;
+}
+
+.links-container {
+    float: right;
+    padding-top: 20px;
+    font-size: 1.25em;
+}
