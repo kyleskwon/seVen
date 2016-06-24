@@ -1,25 +1,21 @@
-<div class="container">
+<div class="container" ng-controller="HomeCtrl">
     <h2>Active Tasks</h2>
-    <ul class="list-group" ng-controller="HomeCtrl" ng-repeat="task in tasks">
-        <li class="list-group-item" ng-hide="hiding">
-            {{ task.description }}
-            <button class="btn btn-default btn-sm" ng-click="hideTask()" >Hide</button>
-<!--
-        <button ng-click="tasks.$remove(task)" class="btn btn-danger btn-sm">Delete</button>    
-        doesn't function when the ng-controller above exists     
--->
-        </li>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="task in tasks">{{ task.description }}: {{ task.timeCreated }}</li>
     </ul>
-    <div ng-controller="HomeCtrl">
+    
+    <div>
         <form ng-submit="addTask()">
             <div class="form-group">
                 <label>Add task:</label>
                 <input class="form-control" placeholder="Description goes here" ng-model="task" />
+<!--
             <br>
                 <select class="form-control" ng-model="select">
                     <option ng-repeat="p in priority">{{p}}</option>
                 </select>
             <br>
+-->
                 <button type="submit" class="btn btn-success btn-sm">Add Task</button>
             </div>
             <br><br>
@@ -29,3 +25,8 @@
         <pre>{{ tasks | json }}</pre>
     </div>
 </div>
+
+<!--
+        <button ng-click="tasks.$remove(task)" class="btn btn-danger btn-sm">Delete</button>    
+        doesn't function when the ng-controller above exists     
+-->
