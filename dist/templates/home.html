@@ -2,7 +2,7 @@
     <h2>Active Tasks</h2>
     <ul class="list-group">
         <li class="list-group-item" ng-repeat="task in tasks" ng-if="task.state == 'active'">
-            {{ task.description }}: {{ $index }}
+            {{ task.description }} ({{ task.priority }})
         </li>
     </ul>
     
@@ -12,17 +12,23 @@
                 <label>Add task:</label>
                 <input class="form-control" placeholder="Description goes here" ng-model="task" />
             <br>
-                <select class="form-control" ng-model="select">
-                    <option ng-repeat="p in priority">{{p}}</option>
+                <select class="form-control" ng-model="priority">
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
                 </select>
             <br>
                 <button type="submit" class="btn btn-success btn-sm">Add Task</button>
             </div>
-            <br>
-            <b>Task: </b>{{ task }}
         </form>
-        
-    <h2>Expired Tasks</h2>
+    
+    <h2>Complete</h2>    
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="task in tasks" ng-if="task.state == 'complete'">
+                {{ task.description }}
+            </li>
+        </ul>
+    <h2>Expired</h2>
         <ul class="list-group">
             <li class="list-group-item" ng-repeat="task in tasks" ng-if="task.state == 'expired'">
                 {{ task.description }}

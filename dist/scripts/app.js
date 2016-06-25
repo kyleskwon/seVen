@@ -18,7 +18,6 @@ seven.config(['$stateProvider', '$locationProvider', function($stateProvider, $l
 seven.controller("HomeCtrl", function($scope, $interval, $firebaseArray) {
     var ref = new Firebase("https://se7en.firebaseio.com/");
     $scope.tasks = $firebaseArray(ref);
-    $scope.priority = ['high', 'medium', 'low'];
     
 // loop through the task array
 // check if expired
@@ -27,7 +26,7 @@ seven.controller("HomeCtrl", function($scope, $interval, $firebaseArray) {
     $interval(function() {
         for (var i = 0; i < $scope.tasks.length; i++) {
             var currentTime = (new Date()).getTime();
-            if (currentTime >= $scope.tasks[i].timeCreated + 3000) {
+            if (currentTime >= $scope.tasks[i].timeCreated + 300000) {
                 $scope.tasks[i].state = "expired";
                 $scope.tasks.$save(i);
             }
@@ -37,7 +36,7 @@ seven.controller("HomeCtrl", function($scope, $interval, $firebaseArray) {
     $scope.addTask = function() {
         $scope.tasks.$add({
             description: $scope.task,
-//            priority: ,   // user's choice from $scope.priority
+            priority: $scope.priority,
             state: "active",
             timeCreated: (new Date()).getTime()
         }).then(function(ref) {
