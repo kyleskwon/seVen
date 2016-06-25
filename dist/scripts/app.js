@@ -36,13 +36,13 @@ seven.controller("HomeCtrl", ["$scope", "$interval", "$firebaseArray",
 // if expired, change state to expired
 // look at firebase doc for methods
         $interval(function() {
-                for (var i = 0; i < $scope.tasks.length; i++) {
-                    var currentTime = (new Date());
-                    if (1 == 1) {
-                        $scope.tasks[i].state = "active";
-                        $scope.tasks.$save(i);
-                    }
+            for (var i = 0; i < $scope.tasks.length; i++) {
+                var currentTime = (new Date()).getTime();
+                if (currentTime >= $scope.tasks[i].timeCreated + 100000) {
+                    $scope.tasks[i].state = "expired";
+                    $scope.tasks.$save(i);
                 }
+            }
         }, 3000)
     
         $scope.addTask = function() {
@@ -55,8 +55,16 @@ seven.controller("HomeCtrl", ["$scope", "$interval", "$firebaseArray",
                 $scope.task = "";
             });
         }
-    
-
+        
+        $scope.hideTask = function() {
+            for (var i = 0; i < $scope.tasks.length; i++) {
+                if ($scope.tasks[i].state == "active") {
+                    return false;
+                } else if ($scope.tasks[i].state == "expired") {
+                    return false;
+                }
+            }
+        }
     }
 ]);
 

@@ -1,7 +1,9 @@
 <div class="container" ng-controller="HomeCtrl">
     <h2>Active Tasks</h2>
     <ul class="list-group">
-        <li class="list-group-item" ng-repeat="task in tasks">{{ task.description }}: {{ task.timeCreated }}</li>
+        <li class="list-group-item" ng-repeat="task in tasks" ng-hide="hideTask()">
+            {{ task.description }}: {{ task.timeCreated }}
+        </li>
     </ul>
     
     <div>
@@ -9,6 +11,7 @@
             <div class="form-group">
                 <label>Add task:</label>
                 <input class="form-control" placeholder="Description goes here" ng-model="task" />
+                <br>
 <!--
             <br>
                 <select class="form-control" ng-model="select">
