@@ -1,8 +1,0 @@
-<div class="container" ng-controller="HomeCtrl">
-    <h2>Expired Tasks</h2>
-    <ul class="list-group">
-        <li class="list-group-item" ng-repeat="task in tasks" ng-if="task.state == 'expired'">
-            {{ task.description }}
-        </li>
-    </ul>
-</div>

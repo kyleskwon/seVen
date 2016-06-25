@@ -11,17 +11,14 @@
             <div class="form-group">
                 <label>Add task:</label>
                 <input class="form-control" placeholder="Description goes here" ng-model="task" />
-                <br>
-<!--
             <br>
                 <select class="form-control" ng-model="select">
                     <option ng-repeat="p in priority">{{p}}</option>
                 </select>
             <br>
--->
                 <button type="submit" class="btn btn-success btn-sm">Add Task</button>
             </div>
-            <br><br>
+            <br>
             <b>Task: </b>{{ task }}
         </form>
         
@@ -36,8 +33,3 @@
         <pre>{{ tasks | json }}</pre>
     </div>
 </div>
-
-<!--
-        <button ng-click="tasks.$remove(task)" class="btn btn-danger btn-sm">Delete</button>    
-        doesn't function when the ng-controller above exists     
--->
