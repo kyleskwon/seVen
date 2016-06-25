@@ -12,17 +12,17 @@ seven.config(['$stateProvider', '$locationProvider', function($stateProvider, $l
             url: '/',
             controller: 'HomeCtrl',
             templateUrl: '/templates/home.html'
-        })
-        .state('complete', {
-            url: '/complete',
-            controller: 'CompleteCtrl',
-            templateUrl: '/templates/complete.html'
-        })
-        .state('expired', {
-            url: '/expired',
-            controller: 'ExpiredCtrl',
-            templateUrl: '/templates/expired.html'
         });
+//        .state('complete', {
+//            url: '/complete',
+//            controller: 'CompleteCtrl',
+//            templateUrl: '/templates/complete.html'
+//        })
+//        .state('expired', {
+//            url: '/expired',
+//            controller: 'ExpiredCtrl',
+//            templateUrl: '/templates/expired.html'
+//        });
 }]);
 
 seven.controller("HomeCtrl", ["$scope", "$interval", "$firebaseArray", 
@@ -38,7 +38,7 @@ seven.controller("HomeCtrl", ["$scope", "$interval", "$firebaseArray",
         $interval(function() {
             for (var i = 0; i < $scope.tasks.length; i++) {
                 var currentTime = (new Date()).getTime();
-                if (currentTime >= $scope.tasks[i].timeCreated + 100000) {
+                if (currentTime >= $scope.tasks[i].timeCreated + 3000) {
                     $scope.tasks[i].state = "expired";
                     $scope.tasks.$save(i);
                 }
@@ -54,16 +54,6 @@ seven.controller("HomeCtrl", ["$scope", "$interval", "$firebaseArray",
             }).then(function(ref) {
                 $scope.task = "";
             });
-        }
-        
-        $scope.hideTask = function() {
-            for (var i = 0; i < $scope.tasks.length; i++) {
-                if ($scope.tasks[i].state == "active") {
-                    return false;
-                } else if ($scope.tasks[i].state == "expired") {
-                    return false;
-                }
-            }
         }
     }
 ]);
