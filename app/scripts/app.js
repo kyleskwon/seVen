@@ -26,7 +26,7 @@ seven.controller("HomeCtrl", function($scope, $interval, $firebaseArray) {
     $interval(function() {
         for (var i = 0; i < $scope.tasks.length; i++) {
             var currentTime = (new Date()).getTime();
-            if (currentTime >= $scope.tasks[i].timeCreated + 300000) {
+            if ((currentTime >= $scope.tasks[i].timeCreated + 10000000) && ($scope.tasks[i].state = "active")) {
                 $scope.tasks[i].state = "expired";
                 $scope.tasks.$save(i);
             }
@@ -43,4 +43,23 @@ seven.controller("HomeCtrl", function($scope, $interval, $firebaseArray) {
             $scope.task = "";
         });
     }
+    
+    $scope.completeTask = function() {
+//        console.log($scope.tasks.$getRecord());
+//        for (var i = 0; i < $scope.tasks.length; i++) {
+//            if ($scope.tasks[i].state == $scope.tasks[2].state) {
+//                $scope.tasks[i].state = "complete";
+//                $scope.tasks.$save(i);
+//            }
+//        }
+        for (var i = 0; i < $scope.tasks.length; i++) {
+            if ($scope.tasks[i].state == $scope.tasks[3].state) {
+                $scope.tasks[i].state = "complete";
+                $scope.tasks.$save(i);
+            }
+        }
+        
+    }
 });
+
+seven.directive()

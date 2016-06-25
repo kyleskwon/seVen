@@ -3,6 +3,7 @@
     <ul class="list-group">
         <li class="list-group-item" ng-repeat="task in tasks" ng-if="task.state == 'active'">
             {{ task.description }} ({{ task.priority }})
+            <button class="btn btn-success btn-sm" ng-click="completeTask()">Complete</button>
         </li>
     </ul>
     
@@ -18,7 +19,7 @@
                     <option value="low">Low</option>
                 </select>
             <br>
-                <button type="submit" class="btn btn-success btn-sm">Add Task</button>
+                <button type="submit" class="btn btn-primary btn-sm">Add Task</button>
             </div>
         </form>
     
