@@ -15,7 +15,7 @@
 <h3>Built With</h3>
 
 <ul>
-    <li href="http://gruntjs.com/">Grunt</li>
+    <li><a href="http://gruntjs.com/">Grunt</a></li>
     <li>[AngularJS](https://angularjs.org/)</li>
     <li>[Firebase](https://en.wikipedia.org/wiki/Firebase)</li>
     <li>[AngularFire(AngularJS bindings for Firebase)](https://github.com/firebase/angularfire)</li>
