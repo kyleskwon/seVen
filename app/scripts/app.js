@@ -44,22 +44,8 @@ seven.controller("HomeCtrl", function($scope, $interval, $firebaseArray) {
         });
     }
     
-    $scope.completeTask = function() {
-//        console.log($scope.tasks.$getRecord());
-//        for (var i = 0; i < $scope.tasks.length; i++) {
-//            if ($scope.tasks[i].state == $scope.tasks[2].state) {
-//                $scope.tasks[i].state = "complete";
-//                $scope.tasks.$save(i);
-//            }
-//        }
-        for (var i = 0; i < $scope.tasks.length; i++) {
-            if ($scope.tasks[i].state == $scope.tasks[3].state) {
-                $scope.tasks[i].state = "complete";
-                $scope.tasks.$save(i);
-            }
-        }
-        
+    $scope.completeTask = function(task) {
+        task.state = "complete";
+        $scope.tasks.$save(task);
     }
 });
-
-seven.directive()
