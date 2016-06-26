@@ -15,8 +15,8 @@
 <h3>Built With</h3>
 
 <ul>
-    <li><a href="http://gruntjs.com/">Grunt</a></li>
-    <li><a href="https://angularjs.org/">AngularJS</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/Firebase">Firebase</a></li>
-    <li><a href="https://github.com/firebase/angularfire">AngularFire(AngularJS bindings for Firebase)</a></li>
+    <li><a href="http://gruntjs.com/">Grunt (Javascript task runner)</a></li>
+    <li><a href="https://angularjs.org/">AngularJS (Javascript MVW framework)</a></li>
+    <li><a href="https://www.firebase.com/">Firebase (Realtime database, backend as a service)</a></li>
+    <li><a href="https://www.firebase.com/docs/web/libraries/angular/">AngularFire (AngularJS bindings for Firebase)</a></li>
 </ul>
