@@ -16,7 +16,7 @@
 
 <ul>
     <li><a href="http://gruntjs.com/">Grunt</a></li>
-    <li>[AngularJS](https://angularjs.org/)</li>
-    <li>[Firebase](https://en.wikipedia.org/wiki/Firebase)</li>
-    <li>[AngularFire(AngularJS bindings for Firebase)](https://github.com/firebase/angularfire)</li>
+    <li><a href="https://angularjs.org/">AngularJS</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Firebase">Firebase</a></li>
+    <li><a href="https://github.com/firebase/angularfire">AngularFire(AngularJS bindings for Firebase)</a></li>
 </ul>
