@@ -1,13 +1,14 @@
 <div class="container" ng-controller="HomeCtrl">
+    <div class="col-md-8 col-md-offset-2">
     <h2>Active Tasks</h2>
     <ul class="list-group">
         <li class="list-group-item" ng-repeat="task in tasks" ng-if="task.state == 'active'">
-            {{ task.description }} ({{ task.priority }})
-            <button class="btn btn-success btn-sm" ng-click="completeTask(task)">Complete</button>
+            <strong>Description:</strong> {{ task.description }}
+            <button class="btn btn-success btn-sm complete" ng-click="completeTask(task)">Complete</button>
+            <p><strong>Priority:</strong> ({{ task.priority }})</p>
         </li>
     </ul>
     
-    <div>
         <form ng-submit="addTask()">
             <div class="form-group">
                 <label>Create a new task:</label>
@@ -22,21 +23,23 @@
                 <button type="submit" class="btn btn-primary btn-sm">Add Task</button>
             </div>
         </form>
-    
-    <h2>Complete</h2>    
+    </div>
+    <div class="col-md-6">
+        <h2>Complete</h2>    
         <ul class="list-group">
             <li class="list-group-item" ng-repeat="task in tasks" ng-if="task.state == 'complete'">
-                {{ task.description }}
+                {{ task.description }} ({{ task.priority }})
             </li>
         </ul>
-    <h2>Expired</h2>
+    </div>
+    <div class="col-md-6">
+        <h2>Expired</h2>
         <ul class="list-group">
             <li class="list-group-item" ng-repeat="task in tasks" ng-if="task.state == 'expired'">
-                {{ task.description }}
+                {{ task.description }} ({{ task.priority }})
             </li>
         </ul>
-        
-        <br>
-        <pre>{{ tasks | json }}</pre>
     </div>
+        <br>
+<!--        <pre>{{ tasks | json }}</pre>-->
 </div>

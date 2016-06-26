@@ -1,13 +1,8 @@
-.form-control {
-    width: 50%;
+.navbar {
+    margin-top: 15px;
 }
 
-.home-container {
-    float: left;
-}
-
-.links-container {
-    float: right;
-    padding-top: 20px;
-    font-size: 1.25em;
+.navbar-blue {
+    background-color: blue;
+    border-color: #e7e7e7;
 }
