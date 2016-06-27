@@ -26,7 +26,7 @@ seven.controller("HomeCtrl", function($scope, $interval, $firebaseArray) {
     $interval(function() {
         for (var i = 0; i < $scope.tasks.length; i++) {
             var currentTime = (new Date()).getTime();
-            if ((currentTime >= $scope.tasks[i].timeCreated + 10000000) && ($scope.tasks[i].state = "active")) {
+            if ((currentTime >= $scope.tasks[i].timeCreated + 108000000) && ($scope.tasks[i].state = "active")) {
                 $scope.tasks[i].state = "expired";
                 $scope.tasks.$save(i);
             }
