@@ -6,3 +6,11 @@
     background-color: blue;
     border-color: #e7e7e7;
 }
+
+.complete {
+    float: right;
+}
+
+.center {
+    text-align: center;
+}

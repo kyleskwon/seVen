@@ -1,6 +1,6 @@
 <div class="container" ng-controller="HomeCtrl">
     <div class="col-md-8 col-md-offset-2">
-    <h2>Active Tasks</h2>
+    <h2 class="center">Active Tasks</h2>
     <ul class="list-group">
         <li class="list-group-item" ng-repeat="task in tasks" ng-if="task.state == 'active'">
             <strong>Description:</strong> {{ task.description }}
@@ -11,8 +11,8 @@
     
         <form ng-submit="addTask()">
             <div class="form-group">
-                <label>Create a new task:</label>
-                <input class="form-control" placeholder="Description goes here" ng-model="task" />
+                <label>Create a task:</label>
+                <input class="form-control" placeholder="Enter description" ng-model="task" />
             <br>
                 <select class="form-control" ng-model="priority">
                     <option value="high">High</option>
@@ -25,7 +25,7 @@
         </form>
     </div>
     <div class="col-md-6">
-        <h2>Complete</h2>    
+        <h2 class="center">Complete</h2>    
         <ul class="list-group">
             <li class="list-group-item" ng-repeat="task in tasks" ng-if="task.state == 'complete' && task.priority =='high'">
                 {{ task.description }} ({{ task.priority }})
@@ -39,7 +39,7 @@
         </ul>
     </div>
     <div class="col-md-6">
-        <h2>Expired</h2>
+        <h2 class="center">Expired</h2>
         <ul class="list-group">
             <li class="list-group-item" ng-repeat="task in tasks" ng-if="task.state == 'expired' && task.priority =='high'">
                 {{ task.description }} ({{ task.priority }})
